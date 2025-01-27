@@ -36,20 +36,23 @@ def otavgetplaylist():
                 clipstartcode]
     else:
         for x in statusjson:
-            if x['clip_type'] != 3:
-                clipnumber.append(str(clipindex))
-                clipduration.append(x['duration_timecode'])
-                clipstart.append(x['displayed_start_timecode'])
-                clipid.append(x['unique_id'])
-                clipstartcode.append(x['relative_start_time'])
-                cliptype.append(x['clip_type'])
-            else:
-                clipnumber.append(str(clipindex))
-                clipduration.append("")
-                clipstart.append("")
-                clipid.append("")
-                clipstartcode.append([""])
-                cliptype.append(x['clip_type'])
+            try:
+                if x['clip_type'] != 3:
+                    clipnumber.append(str(clipindex))
+                    clipduration.append(x['duration_timecode'])
+                    clipstart.append(x['displayed_start_timecode'])
+                    clipid.append(x['unique_id'])
+                    clipstartcode.append(x['relative_start_time'])
+                    cliptype.append(x['clip_type'])
+                else:
+                    clipnumber.append(str(clipindex))
+                    clipduration.append("")
+                    clipstart.append("")
+                    clipid.append("")
+                    clipstartcode.append([""])
+                    cliptype.append(x['clip_type'])
+            except:
+                pass
             if x['name'] != "":
                 clipname.append(x['name'])
             else:
