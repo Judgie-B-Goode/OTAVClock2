@@ -53,10 +53,13 @@ def otavgetplaylist():
                     cliptype.append(x['clip_type'])
             except:
                 pass
-            if x['name'] != "":
-                clipname.append(x['name'])
-            else:
-                clipname.append(x["filename"])
+            try:
+                if x['name'] != "":
+                    clipname.append(x['name'])
+                else:
+                    clipname.append(x["filename"])
+            except:
+                pass
             clipindex += 1
             if 'is_disabled' in x and x['is_disabled']:
                 isdisabled.append('disabled')
